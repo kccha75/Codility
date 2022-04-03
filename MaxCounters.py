@@ -18,10 +18,10 @@ def solution(N, A):
 
         else:
             
-            maxcounter=maximum
+            maxcounter=maximum # save max instead of updating all
 
     for i in range(N):
 
-        counter[i]=max(counter[i],maxcounter)
+        counter[i]=max(counter[i],maxcounter) # update to max
         
     return counter

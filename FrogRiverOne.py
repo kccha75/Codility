@@ -9,8 +9,8 @@ def solution(X, A):
         count[A[k]]+=1
 
         if A[k]<=X and count[A[k]]==1:
-            j+=1
-            if j==X:
+            j+=1 
+            if j==X: # check earliest time
                 return k
     return -1
 
