@@ -1,17 +1,9 @@
 # you can write to stdout for debugging purposes, e.g.
 # print("this is a debug message")
 
-# define matching function
-def matching(A,B):
-    if A=='(' and B==')':
-        return 1
-    else:
-        return 0
-
 def solution(S):
     n=len(S)
-    stack=[]
-
+    total=0
     # check empty
     if n==0:
         return 1
@@ -22,16 +14,15 @@ def solution(S):
         # loop
         for i in range(n):
             if S[i]=='(':
-                stack.append(S[i])
+                total+=1
             else:
-                # check empty before pop
-                if len(stack)==0:
+                # check empty
+                if total==0:
                     return 0
-                last=stack.pop()
-                # check matching
-                if matching(last,S[i])==0:
-                    return 0
-        if len(stack)==0:
+                total-=1 # close bracket
+
+        if total==0:
             return 1
         else:
             return 0
+
